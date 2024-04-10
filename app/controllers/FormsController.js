@@ -1,31 +1,50 @@
 import { AppState } from "../AppState.js";
 import { formsService } from "../services/FormsService.js";
 import { getFormData } from "../utils/FormHandler.js";
+import { setHTML } from "../utils/Writer.js";
 
 
 
 export class FormsController {
   constructor(data) {
     console.log('✅ 📋 🎮');
-
+    formsService.loadForms()
+    this.drawTitles()
+    AppState.on('forms', this.drawTitles)
   }
 
 
 
   createForm() {
     event.preventDefault()
+    const form = event.target
+    const newFormData = getFormData(form)
+    // this.makeTitlesArray(newFormData)
+
+    formsService.createForm(newFormData)
+
+    // @ts-ignore
+    form.reset()
     // let newFormData = getFormData(event.target)
 
-    const newFormData = document.getElementById('field-titles').value
-    console.log('createForm 1: ', newFormData);
-    this.makeTitlesArray(newFormData)
+
+    // this one was working
+    // const newFormData = document.getElementById('field-titles').value
+    // console.log('createForm 1: ', newFormData);
+    // this.makeTitlesArray(newFormData)
+    // end the one that was working
+
+
     /** good resource on getting form values as strings: https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript */
 
-    const newTypesData = document.getElementById('form-input-type').value
-    console.log('createForm 2: ', newTypesData);
-    this.makeTypesArray(newTypesData)
+    // const newTypesData = document.getElementById('form-input-type').value
+    // console.log('createForm 2: ', newTypesData);
+    // this.makeTypesArray(newTypesData)
 
   }
+
+
+
 
 
   makeTitlesArray(newFormData) {
@@ -37,12 +56,18 @@ export class FormsController {
   }
 
 
-  makeTypesArray(newTypesData) {
-    // const typesArray = newTypesData.split(',')
-    console.log('Make Types Array: ', newTypesData);
+  // makeTypesArray(newTypesData) {
+  // const typesArray = newTypesData.split(',')
+  //   console.log('Make Types Array: ', newTypesData);
+  // }
+
+  drawTitles() {
+    const displayedTitles = AppState.forms
+    let titleDisplay = ''
+    displayedTitles.forEach(form => titleDisplay += form.formTitle)
+    setHTML('customizer-display', displayedTitles)
+
   }
-
-
 
 
 
