@@ -1,0 +1,43 @@
+<section class="container">
+  <section class="row border-danger">
+
+    <form id="form-form" onsubmit="app.FormsController.createForm()" class="row bg-white p-3 rounded my-2">
+      <div class="col-12">
+        <h3>Let's make your form.</h3>
+      </div>
+
+
+      <div class="mb-3 col-3">
+        <label for="titles">Your Field Titles</label>
+        <input type="text" id="field-titles" name="field-titles" minlength="2" maxlength="35" class="form-control"
+          required>
+        <small>Enter your titles, separated by commas.</small>
+      </div>
+
+      <div class="mb-3 col-4">
+        <label for="form-input-type">Select the types of inputs you'll want to use.</label>
+        <!-- //FIXME change to checkboxes, then to buttons. . . dropdown only allows us to select one type. These will go into an array that will populate dropdowns for the next step -->
+        <select class="form-select" name="form-input-type" id="form-input-type" required>
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+          <option value="dropdown">Dropdown</option>
+          <option value="checkbox">Checkbox</option>
+          <option value="radio">Radio</option>
+
+        </select>
+      </div>
+
+
+
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary">Get Form<i class="mdi mdi-plus-thick"></i></button>
+      </div>
+    </form>
+
+
+
+
+
+  </section>
+
+</section>
