@@ -1,49 +1,75 @@
 <section class="container">
-  <section class="row border-danger">
 
-    <form id="form-form" onsubmit="app.FormsController.createForm()" class="row bg-white p-3 rounded my-2">
-      <div class="col-12">
-        <h3>Let's make your form.</h3>
+
+  <form id="form-form" onsubmit="app.FormsController.createForm()" class="row bg-white p-3 rounded my-2">
+    <div class="col-12">
+      <h3>Let's make your form.</h3>
+    </div>
+
+
+    <div class="mb-3 col-3">
+      <label for="formTitle">Name your form.</label>
+      <input type="text" id="formTitle" name="formTitle" minlength="2" maxlength="35" class="form-control" required>
+    </div>
+    <div class="mb-3 col-3">
+      <label for="fieldTitles">Your Field Titles</label>
+      <input type="text" id="fieldTitles" name="fieldTitles" minlength="2" maxlength="35" class="form-control">
+      <small>Enter your titles, separated by commas.</small>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary">Get Form</button>
+    </div>
+  </form>
+
+
+  <!-- SECTION customizer display for template -->
+  <section id="field-editor" onsubmit="app.FormsController.createForm()" class="row bg-white p-3 rounded my-2">
+    <div class="d-flex align-items-end">
+      <div class="col-2" id="titles-columns">
+        <h5>Favorite Dino:</h5>
       </div>
 
-
-      <div class="mb-3 col-3">
-        <label for="formTitle">Name your form.</label>
-        <input type="text" id="formTitle" name="formTitle" minlength="2" maxlength="35" class="form-control" required>
+      <div class="col-3" id="selectors">
+        <label for="form-select">Select Input Type</label>
+        <select class="form-select" name="type-selector" id="type-selector" required>
+          <option value="text">Text</option>
+          <option value="dropdown">Dropdown</option>
+          <option value="checkbox">Checkbox</option>
+          <option value="radio">Radio</option>
+        </select>
       </div>
-      <div class="mb-3 col-3">
-        <label for="fieldTitles">Your Field Titles</label>
-        <input type="text" id="fieldTitles" name="fieldTitles" minlength="2" maxlength="35" class="form-control">
-        <small>Enter your titles, separated by commas.</small>
+
+      <div class="col-1" id="form-orderer">
+        <label for="form-order">Order</label>
+        <input type="text" id="form-order" name="form-order" minlength="2" maxlength="35" class="form-control">
       </div>
+    </div>
+  </section>
 
-      <!-- SECTION customizer display for template -->
-      <h3 id="customizer-display"></h3>
-      <div class="row align-items-end">
-        <div class="col-2" id="titles-columns">
-          <h5>Favorite Dino:</h5>
-        </div>
+  <div class="row justify-content-around" id="type-selector">
+    <!-- I want these buttons to hold the solid color when selected
+    https://stackoverflow.com/questions/4639572/check-html-checkbox-using-a-button
+  https://jsfiddle.net/nick_craver/Gf83S/ -->
+    <div class="col-2">
+      <button id="text" class="btn btn-outline-primary w-75 p-2 px-3"><i class="mdi mdi-cursor-text"></i>Text</button>
+    </div>
+    <div class="col-2">
+      <button id="text" class="btn btn-outline-primary w-75 p-2 px-3"><i
+          class="mdi mdi-checkbox-marked"></i>Checkbox</button>
+    </div>
+    <div class="col-2">
+      <button id="text" class="btn btn-outline-primary w-75 p-2 px-3"><i
+          class="mdi mdi-form-dropdown"></i>Dropdown</button>
+    </div>
+  </div>
 
-        <div class="col-3" id="selectors">
-          <label for="form-select">Select Input Type</label>
-          <select class="form-select" name="type-selector" id="type-selector" required>
-            <option value="text">Text</option>
-            <option value="dropdown">Dropdown</option>
-            <option value="checkbox">Checkbox</option>
-            <option value="radio">Radio</option>
-          </select>
-        </div>
+  <h3 id="customizer-display" class="d-none"></h3>
 
-        <div class="col-1" id="form-orderer">
-          <label for="form-order">Order</label>
-          <input type="text" id="form-order" name="form-order" minlength="2" maxlength="35" class="form-control">
-        </div>
-      </div>
-      <!-- <div class="mb-3 col-4"> -->
-      <!-- <label for="form-input-type">Select the types of inputs you'll want to use.</label> -->
-      <!-- //FIXME change to checkboxes, then to buttons. . . dropdown only allows us to select one type. These will go into an array that will populate dropdowns for the next step -->
-      <!-- <select class="form-select" name="form-input-type" id="form-input-type" required> -->
-      <!-- <input type="checkbox" name="text" value="text" id="text-selected">
+  <!-- <div class="mb-3 col-4"> -->
+  <!-- <label for="form-input-type">Select the types of inputs you'll want to use.</label> -->
+  <!-- //FIXME change to checkboxes, then to buttons. . . dropdown only allows us to select one type. These will go into an array that will populate dropdowns for the next step -->
+  <!-- <select class="form-select" name="form-input-type" id="form-input-type" required> -->
+  <!-- <input type="checkbox" name="text" value="text" id="text-selected">
         <label for="text-selected"> Text</label><br>
 
         <input type="checkbox" name="number" value="number" id="number-selected">Number
@@ -55,16 +81,16 @@
         <input type="checkbox" name="radio" value="radio" id="radio-selected">Radio
 
         </select> -->
-      <!-- <button class="btn " id="text-selected">Text</button> -->
-      <!-- </div> -->
-      <!-- 👀 display titles -->
-      <div class="mb-3 col-4">
+  <!-- <button class="btn " id="text-selected">Text</button> -->
+  <!-- </div> -->
+  <!-- 👀 display titles -->
+  <div class="mb-3 col-4">
 
 
 
 
-      </div>
-      <!-- 
+  </div>
+  <!-- 
         <div class="mb-3 col-3">
         <label for="car-model" class="text-capitalize">model</label>
         <input type="text" id="car-model" name="model" minlength="2" maxlength="15" required class="form-control">
@@ -109,15 +135,12 @@
       </div>
       -->
 
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-primary">Get Form<i class="mdi mdi-plus-thick"></i></button>
-      </div>
-    </form>
 
 
 
 
 
-  </section>
+
+
 
 </section>

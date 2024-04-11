@@ -16,7 +16,7 @@ export class Form {
   constructor(data) {
     this.id = generateId,
       this.formTitle = data.formTitle,
-      // this.fieldTitles = splitToArray(data.fieldTitles)  // ? data.fieldTitles.split(',').map(fieldTitles => fieldTitles.trim()) : [],
+      // this.fieldTitles = splitToArray(data.fieldTitles),  // ? data.fieldTitles.split(',').map(fieldTitles => fieldTitles.trim()) : [],
       this.fieldTitles = data.fieldTitles,  // ? data.fieldTitles.split(',').map(fieldTitles => fieldTitles.trim()) : [],
       this.fieldTypes = data.fieldTypes,
       this.formStyle = data.formStyle
