@@ -17,6 +17,7 @@ export class FormsController {
 
   createForm() {
     event.preventDefault()
+    // debugger
     const form = event.target
     const newFormData = getFormData(form)
     // this.makeTitlesArray(newFormData)
@@ -29,9 +30,9 @@ export class FormsController {
 
 
     // this one was working
-    // const newFormData = document.getElementById('field-titles').value
-    // console.log('createForm 1: ', newFormData);
-    // this.makeTitlesArray(newFormData)
+    // const newTitlesData = document.getElementById('fieldTitles').value
+    // console.log('createForm 1: ', newTitlesData);
+    // this.makeTitlesArray(newTitlesData)
     // end the one that was working
 
 
@@ -47,13 +48,14 @@ export class FormsController {
 
 
 
-  makeTitlesArray(newFormData) {
-    const titlesArray = newFormData.split(', ');
-    console.log(titlesArray);
-    // return titlesArray
-    AppState.fieldTitles = titlesArray
-    console.log('Field Titles in Appstate', AppState.fieldTitles);
-  }
+  // makeTitlesArray(newTitlesData) {
+  //   const forms = AppState.forms
+  //   const titlesArray = newTitlesData.split(', ');
+  //   console.log(titlesArray);
+  // return titlesArray
+  // AppState.forms.fieldTitles = titlesArray
+  // console.log('Field Titles in Appstate', AppState.fieldTitles);
+  // }
 
 
   // makeTypesArray(newTypesData) {
@@ -65,7 +67,7 @@ export class FormsController {
     const displayedTitles = AppState.forms
     let titleDisplay = ''
     displayedTitles.forEach(form => titleDisplay += form.formTitle)
-    setHTML('customizer-display', displayedTitles)
+    setHTML('customizer-display', titleDisplay)
 
   }
 

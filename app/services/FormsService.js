@@ -6,14 +6,15 @@ import { loadState, saveState } from "../utils/Store.js"
 
 class FormsService {
   createForm(newFormData) {
+    console.log('service newFormData', newFormData);
     const newForm = new Form(newFormData)
     AppState.forms.push(newForm)
-    console.log('👋 new form here: ', AppState.forms);
     this.saveForm()
   }
 
   saveForm() {
     saveState('forms', AppState.forms)
+    console.log('👋 new form here: ', AppState.forms);
   }
 
   loadForms() {

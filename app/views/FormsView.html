@@ -11,15 +11,34 @@
         <label for="formTitle">Name your form.</label>
         <input type="text" id="formTitle" name="formTitle" minlength="2" maxlength="35" class="form-control" required>
       </div>
-      <h3 id="customizer-display"></h3>
-
-      <!-- <div class="mb-3 col-3">
-        <label for="titles">Your Field Titles</label>
-        <input type="text" id="field-titles" name="field-titles" minlength="2" maxlength="35" class="form-control"
-          required>
+      <div class="mb-3 col-3">
+        <label for="fieldTitles">Your Field Titles</label>
+        <input type="text" id="fieldTitles" name="fieldTitles" minlength="2" maxlength="35" class="form-control">
         <small>Enter your titles, separated by commas.</small>
-      </div> -->
+      </div>
 
+      <!-- SECTION customizer display for template -->
+      <h3 id="customizer-display"></h3>
+      <div class="row align-items-end">
+        <div class="col-2" id="titles-columns">
+          <h5>Favorite Dino:</h5>
+        </div>
+
+        <div class="col-3" id="selectors">
+          <label for="form-select">Select Input Type</label>
+          <select class="form-select" name="type-selector" id="type-selector" required>
+            <option value="text">Text</option>
+            <option value="dropdown">Dropdown</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio</option>
+          </select>
+        </div>
+
+        <div class="col-1" id="form-orderer">
+          <label for="form-order">Order</label>
+          <input type="text" id="form-order" name="form-order" minlength="2" maxlength="35" class="form-control">
+        </div>
+      </div>
       <!-- <div class="mb-3 col-4"> -->
       <!-- <label for="form-input-type">Select the types of inputs you'll want to use.</label> -->
       <!-- //FIXME change to checkboxes, then to buttons. . . dropdown only allows us to select one type. These will go into an array that will populate dropdowns for the next step -->

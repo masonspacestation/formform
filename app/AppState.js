@@ -9,15 +9,15 @@ class ObservableAppState extends EventEmitter {
 
   forms = [
     new Form({
-      title: ``,
-      fields: ``,
-      tieldTypes: ``,
-      formStyle: ``
+      formTitle: `This`,
+      fieldTitles: ['is, my, test, form'],
+      fieldTypes: ['text, checkbox, radio'],
+      formStyle: `bootstrap`
     }),
 
   ]
 
-  fieldTitles = []
+  // fieldTitles = []
 
 }
 
