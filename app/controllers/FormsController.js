@@ -14,38 +14,64 @@ export class FormsController {
   }
 
 
+  checkButtonTest() {
+    const checkedButton = document.getElementById('button-test')
+    if (checkedButton)
+      console.log();
+  }
+
 
   createForm() {
     event.preventDefault()
-    // debugger
+
     const form = event.target
     const newFormData = getFormData(form)
-    // this.makeTitlesArray(newFormData)
 
+    console.log('newformdata ', newFormData);
     formsService.createForm(newFormData)
-
     // @ts-ignore
     form.reset()
-    // let newFormData = getFormData(event.target)
 
 
-    // this one was working
-    // const newTitlesData = document.getElementById('fieldTitles').value
-    // console.log('createForm 1: ', newTitlesData);
-    // this.makeTitlesArray(newTitlesData)
-    // end the one that was working
+
+    // this.makeTitlesArray(newFormData)
 
 
-    /** good resource on getting form values as strings: https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript */
+    // const inputTitles = document.getElementById('fieldTitles').value;
+    // newForm = appState.forms
+    // form.fieldTitles = inputTitles
 
-    // const newTypesData = document.getElementById('form-input-type').value
-    // console.log('createForm 2: ', newTypesData);
-    // this.makeTypesArray(newTypesData)
+
+  }
+
+
+  drawTitles() {
+    const displayedTitles = AppState.forms || []
+    let titleDisplay = ''
+    displayedTitles.forEach(form => titleDisplay += form.formTitle)
+    setHTML('customizer-display', titleDisplay)
 
   }
 
 
 
+
+
+  // let newFormData = getFormData(event.target)
+
+
+  // this one was working
+  // const newTitlesData = document.getElementById('fieldTitles').value
+  // console.log('createForm 1: ', newTitlesData);
+  // this.makeTitlesArray(newTitlesData)
+  // end the one that was working
+
+
+  /** good resource on getting form values as strings: https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript */
+
+  // const newTypesData = document.getElementById('form-input-type').value
+  // console.log('createForm 2: ', newTypesData);
+  // this.makeTypesArray(newTypesData)
 
 
   // makeTitlesArray(newTitlesData) {
@@ -62,23 +88,6 @@ export class FormsController {
   // const typesArray = newTypesData.split(',')
   //   console.log('Make Types Array: ', newTypesData);
   // }
-
-  drawTitles() {
-    const displayedTitles = AppState.forms
-    let titleDisplay = ''
-    displayedTitles.forEach(form => titleDisplay += form.formTitle)
-    setHTML('customizer-display', titleDisplay)
-
-  }
-
-
-
-
-
-
-
-
-
 
 
 

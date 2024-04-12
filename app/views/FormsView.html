@@ -17,7 +17,7 @@
       <small>Enter your titles, separated by commas.</small>
     </div>
     <div class="d-flex justify-content-end">
-      <button class="btn btn-primary">Get Form</button>
+      <button class="btn btn-primary">Customize Form</button>
     </div>
   </form>
 
@@ -50,6 +50,11 @@
     <!-- I want these buttons to hold the solid color when selected
     https://stackoverflow.com/questions/4639572/check-html-checkbox-using-a-button
   https://jsfiddle.net/nick_craver/Gf83S/ -->
+    <div class="button-labels">
+      <input onchange="app.FormsController.checkButtonTest()" type="checkbox" id="button-test" name="button-test"
+        value="dropdownType" class="">
+      <label for="button-test"><i class="mdi mdi-form-dropdown"></i>I'm like a button!</label>
+    </div>
     <div class="col-2">
       <button id="text" class="btn btn-outline-primary w-75 p-2 px-3"><i class="mdi mdi-cursor-text"></i>Text</button>
     </div>
@@ -63,7 +68,7 @@
     </div>
   </div>
 
-  <h3 id="customizer-display" class="d-none"></h3>
+  <h3 id="customizer-display" class=""></h3>
 
   <!-- <div class="mb-3 col-4"> -->
   <!-- <label for="form-input-type">Select the types of inputs you'll want to use.</label> -->
