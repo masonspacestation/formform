@@ -11,6 +11,7 @@ export class FormsController {
     formsService.loadForms()
     this.drawTitles()
     AppState.on('forms', this.drawTitles)
+    AppState.on('activeForm', this.drawActiveFormInCustomizer)
   }
 
 
@@ -31,18 +32,8 @@ export class FormsController {
     formsService.createForm(newFormData)
     // @ts-ignore
     form.reset()
-
-
-
-    // this.makeTitlesArray(newFormData)
-
-
-    // const inputTitles = document.getElementById('fieldTitles').value;
-    // newForm = appState.forms
-    // form.fieldTitles = inputTitles
-
-
   }
+
 
 
   drawTitles() {
@@ -53,42 +44,20 @@ export class FormsController {
 
   }
 
+  drawCustomizer() {
+    const allForms = AppState.forms
+    let formsContent = ''
+    allForms.forEach(form => formsContent += form.CustomizerDisplay)
+  }
 
 
-
-
-  // let newFormData = getFormData(event.target)
-
-
-  // this one was working
-  // const newTitlesData = document.getElementById('fieldTitles').value
-  // console.log('createForm 1: ', newTitlesData);
-  // this.makeTitlesArray(newTitlesData)
-  // end the one that was working
-
-
-  /** good resource on getting form values as strings: https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript */
-
-  // const newTypesData = document.getElementById('form-input-type').value
-  // console.log('createForm 2: ', newTypesData);
-  // this.makeTypesArray(newTypesData)
-
-
-  // makeTitlesArray(newTitlesData) {
-  //   const forms = AppState.forms
-  //   const titlesArray = newTitlesData.split(', ');
-  //   console.log(titlesArray);
-  // return titlesArray
-  // AppState.forms.fieldTitles = titlesArray
-  // console.log('Field Titles in Appstate', AppState.fieldTitles);
-  // }
-
-
-  // makeTypesArray(newTypesData) {
-  // const typesArray = newTypesData.split(',')
-  //   console.log('Make Types Array: ', newTypesData);
-  // }
-
+  drawActiveFormInCustomizer() {
+    const activeForm = AppState.activeForm
+    let activeFormContent = ''
+    activeForm.fieldTitles.forEach(fieldTitle => activeFormContent += fieldTitle.CustomizerDisplay)
+    setHTML('field-editor', activeFormContent)
+    console.log(activeFormContent);
+  }
 
 
 

@@ -17,6 +17,11 @@ class ObservableAppState extends EventEmitter {
 
   ]
 
+  /** 
+   * @type {Form}
+   */
+  activeForm = null
+
   // fieldTitles = []
 
 }
